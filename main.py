@@ -1,6 +1,6 @@
 import discord
 from discord.ext import tasks
-from datetime import time
+from datetime import time, timezone
 from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
@@ -14,7 +14,7 @@ client = discord.Client(intents = intents)
 @client.event
 async def on_ready():
     print("o bot ta on")
-    scheduler = AsyncIOScheduler()
+    scheduler = AsyncIOScheduler(timezone= "America/Sao_Paulo")
     scheduler.add_job(job_bater_ponto, CronTrigger(hour="09, 12, 13, 18", minute="15", second="0")) 
     scheduler.start()
 
