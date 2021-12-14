@@ -14,8 +14,10 @@ client = discord.Client(intents = intents)
 @client.event
 async def on_ready():
     print("o bot ta on")
-    scheduler = AsyncIOScheduler(timezone= "America/Sao_Paulo")
-    scheduler.add_job(job_bater_ponto, CronTrigger(hour="09, 12, 13, 18", minute="15", second="0")) 
+    scheduler = AsyncIOScheduler()
+
+    # horário com 3h a mais para rodar no heroku (timezone UTC)
+    scheduler.add_job(job_bater_ponto, CronTrigger(hour="12, 15, 16, 21", minute="35", second="0")) 
     scheduler.start()
 
 
