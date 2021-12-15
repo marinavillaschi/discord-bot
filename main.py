@@ -16,7 +16,7 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto, CronTrigger(day_of_week = "MON-FRI", hour="16", minute="21", second="0")) 
+    scheduler.add_job(job_bater_ponto, CronTrigger(day_of_week = "MON-FRI", hour="19", minute="26", second="0")) 
     scheduler.start()
 
 
