@@ -40,12 +40,5 @@ async def job_bater_ponto():
     await c.send("lembrar de bater ponto!!")
 
 
-@client.command()
-async def calculate_expression(ctx, *expression):
-    expression = "".join(expression)
-    print(expression)
-    response = eval(expression)
-    await ctx.send("O resultado é " + str(response))
-
 TOKEN = config("token")
 client.run(TOKEN)
