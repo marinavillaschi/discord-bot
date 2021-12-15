@@ -18,7 +18,7 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="21", minute="28, 30", second="0")) 
+    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="12, 15, 16, 21", minute="15", second="0")) 
     scheduler.start()
 
 
@@ -41,7 +41,7 @@ async def on_message(message):
 async def job_bater_ponto_1():
     await client.wait_until_ready()
     c = client.get_channel(918949634259431469)
-    await c.send("teste 1")
+    await c.send("Bater ponto!")
     await c.send(datetime.now())
 
 
