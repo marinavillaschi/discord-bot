@@ -4,7 +4,7 @@ from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
-
+from discord_slash import SlashCommand, SlashContext
 
 
 intents = discord.Intents.default()
@@ -20,6 +20,16 @@ async def on_ready():
     # horário com 3h a mais para rodar no heroku (timezone UTC)
     scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="12, 15, 16, 21", minute="15", second="0")) 
     scheduler.start()
+
+
+slash = SlashCommand(client)
+
+@slash.slash(name="test")
+async def test(ctx: SlashContext):
+    embed = discord.Embed(title="Embed Test")
+    await ctx.send(embed=embed)
+
+
 
 
 @client.event
