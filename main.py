@@ -1,15 +1,12 @@
 import discord
 from discord.ext import commands, tasks
-from datetime import time, timezone
 from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 
-intents = discord.Intents.default()
-intents.members = True 
-
-client = discord.Client(intents = intents)
+client = commands.Bot("/")
+# client = discord.Client(intents = intents)
 
 @client.event
 async def on_ready():
@@ -18,7 +15,7 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto, CronTrigger(day_of_week = "MON-FRI", hour="12, 13, 15, 16, 21", minute="15")) 
+    scheduler.add_job(job_bater_ponto, CronTrigger(day_of_week = "MON-FRI", hour="12, 15, 16, 21", minute="15")) 
     scheduler.start()
 
 
@@ -26,7 +23,6 @@ async def on_ready():
 async def on_message(message):
     content = message.content.lower()
     channel = message.channel
-    author = message.author.name
     mention = message.author.mention
 
     # prevenir erro dele falar com ele mesmo
@@ -43,6 +39,13 @@ async def job_bater_ponto():
     c = client.get_channel(918949634259431469)
     await c.send("lembrar de bater ponto!!")
 
+
+@client.command()
+async def calculate_expression(ctx, *expression):
+    expression = "".join(expression)
+    print(expression)
+    response = eval(expression)
+    await ctx.send("O resultado é " + str(response))
 
 TOKEN = config("token")
 client.run(TOKEN)
