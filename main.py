@@ -16,12 +16,12 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto_1, CronTrigger(day_of_week = "MON-FRI", hour="13", minute="38", second="0")) 
-    scheduler.add_job(job_bater_ponto_2, CronTrigger(day_of_week = "MON-FRI", hour="14", minute="38", second="0")) 
-    scheduler.add_job(job_bater_ponto_3, CronTrigger(day_of_week = "MON-FRI", hour="15", minute="38", second="0")) 
-    scheduler.add_job(job_bater_ponto_4, CronTrigger(day_of_week = "MON-FRI", hour="16", minute="38", second="0")) 
-    scheduler.add_job(job_bater_ponto_5, CronTrigger(day_of_week = "MON-FRI", hour="17", minute="38", second="0")) 
-    scheduler.add_job(job_bater_ponto_6, CronTrigger(day_of_week = "MON-FRI", hour="18", minute="38", second="0")) 
+    scheduler.add_job(job_bater_ponto_1, CronTrigger(day_of_week = "MON-FRI", hour="19", minute="41", second="0")) 
+    scheduler.add_job(job_bater_ponto_2, CronTrigger(day_of_week = "MON-FRI", hour="20", minute="41", second="0")) 
+    scheduler.add_job(job_bater_ponto_3, CronTrigger(day_of_week = "MON-FRI", hour="21", minute="41", second="0")) 
+    scheduler.add_job(job_bater_ponto_4, CronTrigger(day_of_week = "MON-FRI", hour="22", minute="41", second="0")) 
+    scheduler.add_job(job_bater_ponto_5, CronTrigger(day_of_week = "MON-FRI", hour="23", minute="41", second="0")) 
+    scheduler.add_job(job_bater_ponto_6, CronTrigger(day_of_week = "MON-FRI", hour="00", minute="41", second="0")) 
     scheduler.start()
 
 
