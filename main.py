@@ -16,12 +16,12 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="19", minute="52", second="0")) 
-    scheduler.add_job(job_bater_ponto_2, CronTrigger(hour="20", minute="52", second="0")) 
-    scheduler.add_job(job_bater_ponto_3, CronTrigger(hour="21", minute="52", second="0")) 
-    scheduler.add_job(job_bater_ponto_4, CronTrigger(hour="22", minute="52", second="0")) 
-    scheduler.add_job(job_bater_ponto_5, CronTrigger(hour="23", minute="52", second="0")) 
-    scheduler.add_job(job_bater_ponto_6, CronTrigger(hour="00", minute="52", second="0")) 
+    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="13", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_2, CronTrigger(hour="14", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_3, CronTrigger(hour="15", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_4, CronTrigger(hour="16", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_5, CronTrigger(hour="17", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_6, CronTrigger(hour="18", minute="59", second="0")) 
     scheduler.start()
 
 
