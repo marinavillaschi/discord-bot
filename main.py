@@ -16,12 +16,7 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="13", minute="59", second="0")) 
-    scheduler.add_job(job_bater_ponto_2, CronTrigger(hour="14", minute="59", second="0")) 
-    scheduler.add_job(job_bater_ponto_3, CronTrigger(hour="15", minute="59", second="0")) 
-    scheduler.add_job(job_bater_ponto_4, CronTrigger(hour="16", minute="59", second="0")) 
-    scheduler.add_job(job_bater_ponto_5, CronTrigger(hour="17", minute="59", second="0")) 
-    scheduler.add_job(job_bater_ponto_6, CronTrigger(hour="18", minute="59", second="0")) 
+    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="00", minute="00, 15, 16, 17, 18, 20", second="0")) 
     scheduler.start()
 
 
@@ -44,31 +39,6 @@ async def job_bater_ponto_1():
     await client.wait_until_ready()
     c = client.get_channel(918949634259431469)
     await c.send("teste 1")
-
-async def job_bater_ponto_2():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
-    await c.send("teste 2")
-
-async def job_bater_ponto_3():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
-    await c.send("teste 3")
-
-async def job_bater_ponto_4():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
-    await c.send("teste 4")
-
-async def job_bater_ponto_5():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
-    await c.send("teste 5")
-
-async def job_bater_ponto_6():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
-    await c.send("teste 6")
 
 
 TOKEN = config("token")
