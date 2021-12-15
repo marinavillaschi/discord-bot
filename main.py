@@ -35,14 +35,14 @@ async def on_message(message):
     # responder ao bom dia
     if(content == "bom dia"):
         await channel.send("bom dia " + mention)
-        await channel.sent(date.today())
+        await channel.send(date.today())
 
 
 async def job_bater_ponto_1():
     await client.wait_until_ready()
     c = client.get_channel(918949634259431469)
     await c.send("teste 1")
-    await c.sent(date.today())
+    await c.send(date.today())
 
 
 TOKEN = config("token")
