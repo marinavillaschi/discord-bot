@@ -4,7 +4,7 @@ from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
-from discord_slash import SlashCommand, SlashContext
+# from discord_slash import SlashCommand, SlashContext
 
 
 intents = discord.Intents.default()
@@ -22,12 +22,12 @@ async def on_ready():
     scheduler.start()
 
 
-slash = SlashCommand(client)
+# slash = SlashCommand(client)
 
-@slash.slash(name="test")
-async def test(ctx: SlashContext):
-    embed = discord.Embed(title="Embed Test")
-    await ctx.send(embed=embed)
+# @slash.slash(name="test")
+# async def test(ctx: SlashContext):
+#     embed = discord.Embed(title="Embed Test")
+#     await ctx.send(embed=embed)
 
 
 
