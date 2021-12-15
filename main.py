@@ -3,7 +3,7 @@ from discord.ext import commands
 from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
-from datetime import date
+from datetime import datetime
 
 
 
@@ -18,7 +18,7 @@ async def on_ready():
     scheduler = AsyncIOScheduler()
 
     # horário com 3h a mais para rodar no heroku (timezone UTC)
-    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23", minute="20, 22, 24, 27, 28", second="0")) 
+    scheduler.add_job(job_bater_ponto_1, CronTrigger(hour="1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23", minute="20, 22, 24, 27, 28, 30", second="0")) 
     scheduler.start()
 
 
@@ -35,14 +35,14 @@ async def on_message(message):
     # responder ao bom dia
     if(content == "bom dia"):
         await channel.send("bom dia " + mention)
-        await channel.send(date.today())
+        await channel.send(datetime.now())
 
 
 async def job_bater_ponto_1():
     await client.wait_until_ready()
     c = client.get_channel(918949634259431469)
     await c.send("teste 1")
-    await c.send(date.today())
+    await c.send(datetime.now())
 
 
 TOKEN = config("token")
