@@ -1,9 +1,7 @@
 import discord
-from discord.ext import commands
 from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
-from datetime import datetime
 # from discord_slash import SlashCommand, SlashContext
 
 
@@ -30,8 +28,6 @@ async def on_ready():
 #     await ctx.send(embed=embed)
 
 
-
-
 @client.event
 async def on_message(message):
     content = message.content.lower()
@@ -42,17 +38,23 @@ async def on_message(message):
     if(message.author.bot):
         return
 
+    # responder ao oi
+    if(content == "oi" + mention or content == "ola" or content == "olá"):
+        await channel.send("Tenha um ótimo dia " + mention)
+
     # responder ao bom dia
-    if(content == "bom dia" or content == "morning"):
-        await channel.send("bom dia " + mention)
-        await channel.send(datetime.now())
+    if(content == "bom dia" or content == "dia"):
+        await channel.send("Tenha um ótimo dia " + mention)
+
+    # responder ao morning
+    if(content == "good morning" or content == "morning"):
+        await channel.send("Have a great day " + mention)
 
 
 async def job_bater_ponto_1():
     await client.wait_until_ready()
     c = client.get_channel(918949634259431469)
     await c.send("Bater ponto!")
-    await c.send(datetime.now())
 
 
 TOKEN = config("token")
