@@ -43,7 +43,7 @@ async def on_message(message):
         return
 
     # responder ao bom dia
-    if(content == "bom dia"):
+    if(content == "bom dia" or content == "morning"):
         await channel.send("bom dia " + mention)
         await channel.send(datetime.now())
 
