@@ -1,5 +1,4 @@
 discord.py
 requests
 python-decouple
-datetime
 apscheduler
