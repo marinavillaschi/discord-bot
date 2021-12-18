@@ -7,6 +7,9 @@ intents = discord.Intents.default()
 intents.members = True 
 client = discord.Client(intents = intents)
 
+client.load_extention("commands")
+
+
 @client.event
 async def on_ready():
     print("o bot ta on")
