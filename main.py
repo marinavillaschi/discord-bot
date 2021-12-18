@@ -23,8 +23,8 @@ async def on_ready():
 
 
 async def job_bater_ponto():
-    await client.wait_until_ready()
-    c = client.get_channel(918949634259431469)
+    await bot.wait_until_ready()
+    c = bot.get_channel(918949634259431469)
     await c.send("Bater ponto!")
 
 
