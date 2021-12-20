@@ -38,8 +38,8 @@ async def info(ctx):
     await ctx.send(embed=embed)
 
 @bot.command(name="calc")
-async def calculate_expression(ctx, expression):
-    expression = " ".join(expression)
+async def calculate_expression(ctx, *expression):
+    expression = ' '.join(expression)
     response = eval(expression)
     await ctx.send("Resposta = " + str(response))
 
