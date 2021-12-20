@@ -9,7 +9,8 @@ intents.members = True
 
 bot = commands.Bot(command_prefix='/', intents = intents)
 
-# client = discord.Client(intents = intents)
+channel_id = config("channel_id")
+
 
 
 @bot.event
@@ -24,7 +25,7 @@ async def on_ready():
 
 async def job_bater_ponto():
     await bot.wait_until_ready()
-    c = bot.get_channel(918949634259431469)
+    c = bot.get_channel(channel_id)
     await c.send("Bater ponto!", delete_after = 3600)
 
 
