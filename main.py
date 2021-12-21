@@ -26,7 +26,6 @@ async def job_bater_ponto():
     await c.send("Bater ponto!", delete_after = 3600)
 
 
-
 @bot.event
 async def on_message(message):
     content = message.content.lower()
