@@ -11,8 +11,6 @@ bot = commands.Bot(command_prefix='/', intents = intents)
 
 channel_id = config("channel_id")
 
-
-
 @bot.event
 async def on_ready():
     print("o bot ta on")
@@ -22,11 +20,11 @@ async def on_ready():
     scheduler.add_job(job_bater_ponto, CronTrigger(day_of_week="MON-FRI", hour="12, 15, 16, 21")) 
     scheduler.start()
 
-
 async def job_bater_ponto():
     await bot.wait_until_ready()
-    c = bot.get_channel(channel_id)
+    c = bot.get_channel(int(channel_id))
     await c.send("Bater ponto!", delete_after = 3600)
+
 
 
 @bot.event
@@ -46,6 +44,9 @@ async def on_message(message):
     # responder ao morning
     if(content == "good morning" or content == "morning"):
         await channel.send("Have a great day " + mention)
+
+    if (content == "ponto"):
+        await job_bater_ponto()
 
 
 TOKEN = config("token")
