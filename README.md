@@ -1,3 +1,7 @@
+<p align="left">
+  <img src="qeshinho.png" >
+</p>
+
 # Qeshinho
 Bot do Discord da Qesh
 
