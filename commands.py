@@ -43,6 +43,15 @@ async def calculate_expression(ctx, *expression):
     response = eval(expression)
     await ctx.send("Resposta = " + str(response))
 
+
+# import disnake
+# from disnake.ext import commands
+
+# @bot.slash_command(description="Multiplies the number by 7")
+# async def multiply(inter, number: int):
+#     await inter.response.send_message(number * 7)
+
+
 @bot.command()
 async def test(ctx, arg):
     await ctx.send(arg)

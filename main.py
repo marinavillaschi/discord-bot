@@ -48,5 +48,6 @@ async def on_message(message):
         await job_bater_ponto()
 
 
+
 TOKEN = config("token")
 bot.run(TOKEN)
