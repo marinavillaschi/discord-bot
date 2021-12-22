@@ -44,7 +44,7 @@ async def on_message(message):
     if(content == "good morning" or content == "morning"):
         await channel.send("Have a great day " + mention)
 
-    if (content == "ponto"):
+    if(content == "ponto"):
         await job_bater_ponto()
 
 
