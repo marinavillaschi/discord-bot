@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from decouple import config
+from randomPhrases import randomPhrases
 
 bot = commands.Bot(command_prefix='/')
 
@@ -24,6 +25,12 @@ async def info(ctx):
     )
 
     embed.add_field(
+        name='/motivate   :thinking:',
+        value='Eu te digo uma frase motivacional.\n',
+        inline=False
+    )
+
+    embed.add_field(
         name=':alarm_clock: Lembrete para bater o ponto',
         value='Eu passo pra te lembrar de bater o ponto!',
         inline=False
@@ -41,6 +48,10 @@ async def calculate_expression(ctx, *expression):
 @bot.command()
 async def test(ctx, arg):
     await ctx.send(arg)
+
+@bot.command()
+async def motivate(ctx):
+    await ctx.send(randomPhrases())
 
 TOKEN = config("token")
 bot.run(TOKEN)
