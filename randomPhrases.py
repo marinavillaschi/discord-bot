@@ -9,6 +9,6 @@ def randomPhrases():
 
     for phrase in data:
         if phrase['id'] == selectedPhrase:
-            return phrase['quote'] + '\n- ' + phrase['author']
+            return '"'+phrase['quote'] + '"' + '\n- ' + phrase['author']
 
 randomPhrases()
