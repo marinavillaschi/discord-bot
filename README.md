@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="qeshinho.png" >
+  <img src="assets/qeshinho.png" >
 </p>
 
 # Bot-Qeshinho
